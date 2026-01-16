@@ -5,7 +5,7 @@ const FAQSection = ({ faqs }) => {
     <section className="section" id="faq">
       <SectionHeader
         eyebrow="Trust and clarity"
-        title="Questions we are asked most"
+        title="Questions We Are Asked Most"
         description="Transparency matters. Here are the answers visitors look for before they give or join."
       />
       <div className="accordion">

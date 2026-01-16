@@ -7,7 +7,6 @@ import ValuesSection from './components/ValuesSection'
 import ImpactSection from './components/ImpactSection'
 import DonateSection from './components/DonateSection'
 import JoinSection from './components/JoinSection'
-import EventsSection from './components/EventsSection'
 import FAQSection from './components/FAQSection'
 import ContactSection from './components/ContactSection'
 import Footer from './components/Footer'
@@ -15,7 +14,7 @@ import DonateModal from './components/DonateModal'
 
 // Single-page flow keeps navigation and calls to action visible without extra clicks.
 const whatsappLink = 'https://chat.whatsapp.com/invite' // Replace with live invite link when ready.
-const tillNumber = '123456'
+const tillNumber = '7705914'
 
 const values = [
   {
@@ -52,46 +51,25 @@ const projects = [
   },
 ]
 
-const events = [
-  {
-    status: 'Upcoming',
-    title: 'Community Service Day',
-    date: 'Feb 8, 2026',
-    location: 'Local center (TBD)',
-    description: 'Hands-on volunteering with clear roles and time slots. Join via WhatsApp for live coordination.',
-  },
-  {
-    status: 'Upcoming',
-    title: 'Ramadan Prep Briefing',
-    date: 'Mar 1, 2026',
-    location: 'Online (WhatsApp Live)',
-    description: 'Walkthrough of Iftar campaign goals, donation tags, and volunteer shifts before launch.',
-  },
-  {
-    status: 'Past',
-    title: 'Youth Circle: Purpose & Service',
-    date: 'Dec 12, 2025',
-    location: 'Community Hall',
-    description: 'Dialogue on faith-driven action with commitments captured for follow-up.',
-  },
-]
-
 const faqs = [
   {
     question: 'Where do donations go?',
-    answer: 'Funds go to tagged causes (e.g., Iftar, education support) and are logged with amount, reference, and status. No PINs or card data are stored.',
+    answer:
+      'All donations support Al-Karim\'s youth programs and community initiatives, including Ramadan Iftar programs, educational sessions, and other activities that directly benefit youth and the wider community. Every contribution creates meaningful impact.',
   },
   {
     question: 'How do I join the community?',
-    answer: 'Tap the WhatsApp button—no accounts or forms required. You will land directly in the invite flow.',
+    answer:
+      'Joining is simple. Click the “Join” button on the website to access our WhatsApp group. No sign-ups or waiting are required—you’ll be connected to our youth network and updates immediately.',
   },
   {
     question: 'Do I need an account to donate?',
-    answer: 'No. Donations are completed inside your M-Pesa experience. This site only displays the official Till Number and captures basic metadata.',
+    answer: 'No account is needed. Donations are made securely via M-Pesa using our till number. Enter the donation amount and your PIN to complete the transaction.',
   },
   {
     question: 'Can I volunteer without donating?',
-    answer: 'Yes. Join the WhatsApp group to see open roles and timelines. We welcome time, skills, and outreach help.',
+    answer:
+      'Yes. You can attend youth sessions, volunteer at community events, and participate in programs without making a donation. Contributions are appreciated but optional.',
   },
 ]
 
@@ -123,7 +101,6 @@ function App() {
         <ImpactSection projects={projects} />
         <DonateSection onDonateClick={() => setShowDonateModal(true)} tillNumber={tillNumber} />
         <JoinSection whatsappLink={whatsappLink} />
-        <EventsSection events={events} />
         <FAQSection faqs={faqs} />
         <ContactSection onSubmit={handleContactSubmit} statusMessage={contactStatus} />
       </main>

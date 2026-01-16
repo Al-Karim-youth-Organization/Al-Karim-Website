@@ -1,54 +1,217 @@
+import { useState } from 'react'
+import SectionHeader from './SectionHeader'
+
 const DonateSection = ({ onDonateClick, tillNumber }) => {
+  const [amount, setAmount] = useState('')
+  const [customAmount, setCustomAmount] = useState('')
+  const [showConfirmation, setShowConfirmation] = useState(false)
+
+  const suggestedAmounts = [500, 1000, 2000, 5000]
+
+  const handleDonate = () => {
+    const finalAmount = amount === 'custom' ? customAmount : amount
+    if (finalAmount && finalAmount > 0) {
+      setShowConfirmation(true)
+      setTimeout(() => setShowConfirmation(false), 4000)
+      onDonateClick()
+    }
+  }
+
   return (
     <section className="section donate" id="donate">
-      <div className="donate-left">
-        <p className="eyebrow">Donate</p>
-        <h2>Trustworthy, M-Pesa-first donations.</h2>
-        <p>
-          Your contribution powers youth-led initiatives, emergency drives, and learning programs. We keep the flow
-          simple: choose an amount, use the official Till Number, and get a clear confirmation.
-        </p>
-        <div className="steps">
-          <div className="step">
-            <span className="step-number">1</span>
-            <div>
-              <h4>Initiate</h4>
-              <p>Tap Donate to open the M-Pesa details. No card inputs or sensitive data collected here.</p>
-            </div>
+      <SectionHeader
+        eyebrow="Support Us"
+        title="Make a difference today"
+        description="Your support helps Al-Karim educate youth on the teachings of Islam, foster meaningful community service, and create programs that strengthen faith and character. Every contribution helps us guide young people to learn, serve, and make a positive impact in their communities."
+      />
+      
+      <div style={{ 
+        maxWidth: '600px', 
+        margin: '0 auto', 
+        padding: '2rem',
+        background: '#fff',
+        borderRadius: '8px',
+        boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+        border: '1px solid #E2E8F0'
+      }}>
+        
+        {/* Security Badge */}
+        <div style={{ 
+          display: 'flex', 
+          alignItems: 'center', 
+          gap: '0.5rem',
+          marginBottom: '1.5rem',
+          padding: '0.75rem',
+          background: '#F0FDF4',
+          borderRadius: '4px',
+          border: '1px solid #86EFAC'
+        }}>
+          <span style={{ fontSize: '1.25rem' }}>🔒</span>
+          <span style={{ fontSize: '0.875rem', color: '#166534', fontWeight: '500' }}>
+            Secure M-Pesa donation • No passwords stored
+          </span>
+        </div>
+
+        {/* Till Number Display */}
+        <div style={{ 
+          textAlign: 'center',
+          padding: '1rem',
+          background: '#F8FAFC',
+          borderRadius: '4px',
+          marginBottom: '1.5rem',
+          border: '1px solid #E2E8F0'
+        }}>
+          <p style={{ margin: '0 0 0.25rem', fontSize: '0.875rem', color: '#64748B' }}>
+            M-Pesa Till Number
+          </p>
+          <p style={{ 
+            margin: 0, 
+            fontSize: '1.75rem', 
+            fontWeight: '700', 
+            color: '#1B4332',
+            letterSpacing: '0.05em'
+          }}>
+            {tillNumber}
+          </p>
+        </div>
+
+        {/* Amount Selection */}
+        <div style={{ marginBottom: '1.5rem' }}>
+          <label style={{ 
+            display: 'block', 
+            marginBottom: '0.75rem',
+            fontSize: '0.875rem',
+            fontWeight: '600',
+            color: '#1E293B'
+          }}>
+            Select Amount (KES)
+          </label>
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(2, 1fr)', 
+            gap: '0.75rem',
+            marginBottom: '0.75rem'
+          }}>
+            {suggestedAmounts.map((amt) => (
+              <button
+                key={amt}
+                type="button"
+                onClick={() => {
+                  setAmount(amt)
+                  setCustomAmount('')
+                }}
+                style={{
+                  padding: '0.875rem',
+                  border: amount === amt ? '2px solid #1B4332' : '2px solid #E2E8F0',
+                  background: amount === amt ? '#F0FDF4' : '#fff',
+                  borderRadius: '4px',
+                  fontSize: '1rem',
+                  fontWeight: '600',
+                  color: amount === amt ? '#1B4332' : '#475569',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s'
+                }}
+              >
+                KES {amt.toLocaleString()}
+              </button>
+            ))}
           </div>
-          <div className="step">
-            <span className="step-number">2</span>
-            <div>
-              <h4>Send securely</h4>
-              <p>Use your M-Pesa app or SIM toolkit to send to Till {tillNumber}. Enter your PIN on your device.</p>
-            </div>
-          </div>
-          <div className="step">
-            <span className="step-number">3</span>
-            <div>
-              <h4>Confirm</h4>
-              <p>Return here to see your confirmation and learn how your gift supports specific causes.</p>
-            </div>
+          
+          {/* Custom Amount */}
+          <div>
+            <label style={{ 
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              marginBottom: '0.5rem',
+              fontSize: '0.875rem',
+              color: '#64748B'
+            }}>
+              <input
+                type="radio"
+                checked={amount === 'custom'}
+                onChange={() => setAmount('custom')}
+                style={{ cursor: 'pointer' }}
+              />
+              Custom Amount
+            </label>
+            <input
+              type="number"
+              placeholder="Enter custom amount"
+              value={customAmount}
+              onChange={(e) => {
+                setCustomAmount(e.target.value)
+                setAmount('custom')
+              }}
+              disabled={amount !== 'custom'}
+              style={{
+                width: '100%',
+                padding: '0.875rem',
+                border: '2px solid #E2E8F0',
+                borderRadius: '4px',
+                fontSize: '1rem',
+                background: amount === 'custom' ? '#fff' : '#F8FAFC',
+                opacity: amount === 'custom' ? 1 : 0.6
+              }}
+            />
           </div>
         </div>
-        <div className="cta-row">
-          <button className="primary-button" type="button" onClick={onDonateClick}>
-            Open M-Pesa Details
-          </button>
-          <p className="subtle">Official Till Number: {tillNumber}</p>
+
+        {/* Instructions */}
+        <div style={{ 
+          padding: '1rem',
+          background: '#FEF3C7',
+          borderRadius: '4px',
+          marginBottom: '1.5rem',
+          border: '1px solid #FCD34D'
+        }}>
+          <p style={{ 
+            margin: 0, 
+            fontSize: '0.875rem', 
+            color: '#92400E',
+            lineHeight: '1.5'
+          }}>
+            <strong>How to donate:</strong> Go to M-Pesa → Lipa na M-Pesa → Buy Goods and Services → 
+            Enter Till <strong>{tillNumber}</strong> → Enter the amount → Enter your PIN
+          </p>
         </div>
-      </div>
-      <div className="donate-card">
-        <h4>M-Pesa Quick Info</h4>
-        <ul>
-          <li>Payment type: Buy Goods & Services</li>
-          <li>Till Number: {tillNumber}</li>
-          <li>No passwords or card numbers requested here.</li>
-          <li>We log amount, reference, and cause tag only.</li>
-        </ul>
-        <div className="alert">
-          <strong>Security note:</strong> You will enter your M-Pesa PIN only inside your trusted M-Pesa flow.
-        </div>
+
+        {/* Donate Button */}
+        <button
+          onClick={handleDonate}
+          disabled={!amount || (amount === 'custom' && !customAmount)}
+          style={{
+            width: '100%',
+            padding: '1rem',
+            background: (!amount || (amount === 'custom' && !customAmount)) ? '#CBD5E1' : '#1B4332',
+            color: '#fff',
+            border: 'none',
+            borderRadius: '4px',
+            fontSize: '1.125rem',
+            fontWeight: '700',
+            cursor: (!amount || (amount === 'custom' && !customAmount)) ? 'not-allowed' : 'pointer',
+            transition: 'all 0.2s',
+            marginBottom: '1rem'
+          }}
+        >
+          Continue to M-Pesa
+        </button>
+
+        {/* Confirmation Message */}
+        {showConfirmation && (
+          <div style={{
+            padding: '0.875rem',
+            background: '#D1FAE5',
+            border: '1px solid #34D399',
+            borderRadius: '4px',
+            color: '#065F46',
+            fontSize: '0.875rem',
+            textAlign: 'center',
+            fontWeight: '500'
+          }}>
+            ✓ Thank you! Please complete the payment on your M-Pesa app.
+          </div>
+        )}
       </div>
     </section>
   )
