@@ -1,0 +1,163 @@
+/* ========================================
+   INSTITUTIONAL DESIGN SYSTEM
+   Al-Karim Humanitarian Foundation
+   ANTI-TREND | PROFESSIONAL | AUTHORITATIVE
+   ======================================== */
+
+:root {
+  /* Typography System */
+  --font-serif: 'Playfair Display', Lora, Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  
+  /* ========================================
+     INSTITUTIONAL COLOR PALETTE
+     ======================================== */
+  
+  /* Primary Base - Deep Heritage Green */
+  --primary: #1B4332;        /* Islamic identity, professional dark forest tone */
+  --primary-hover: #15362A;  /* 10% darker for hover states */
+  
+  /* Secondary Base - Oxford Blue */
+  --secondary: #002147;      /* Global NGO authority, headers/footers */
+  --secondary-hover: #001A38; /* 10% darker for hover states */
+  
+  /* Action / CTA - Muted Gold */
+  --accent-gold: #C5A059;    /* Donate buttons, high visibility without neon */
+  --accent-gold-hover: #B18F4D; /* 10% darker for hover states */
+  
+  /* Background - Off-White/Light Gray */
+  --page-bg: #F8F9FA;        /* Prevents eye strain, more established than pure white */
+  --card-bg: #FFFFFF;        /* Cards on off-white background */
+  
+  /* Text Colors */
+  --text-primary: #1A202C;   /* Deep Slate - never pure black */
+  --text-muted: #4A5568;     /* Steel Gray - secondary info, captions */
+  
+  /* Border Color */
+  --border: #E2E8F0;         /* Thin lines to separate sections */
+  
+  /* Semantic Aliases */
+  --white: #FFFFFF;
+  --off-white: var(--page-bg);
+  --text-secondary: var(--text-primary);
+  
+  /* ========================================
+     GEOMETRY & SPACING (ANTI-TREND)
+     ======================================== */
+  
+  /* Border Radius - Sharp Professional Edge */
+  --radius: 2px;             /* All elements use 2px - no rounded look */
+  
+  /* Grid System - 12 Column */
+  --gutter: 24px;
+  --container-max: 1200px;
+  
+  /* Shadows - Minimal "Elevation 1" */
+  --shadow-subtle: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  --shadow-none: none;
+  
+  /* Typography */
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--text-primary);
+  background-color: var(--page-bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   BASE RESET
+   ======================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--page-bg);
+  color: var(--text-primary);
+  font-size: 16px;
+}
+
+/* ========================================
+   TYPOGRAPHY HIERARCHY
+   ======================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  margin: 0;
+  line-height: 1.2;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+/* H1 (Hero): 700 (Bold) | 3.5rem / 56px */
+h1 {
+  font-size: 3.5rem;         /* 56px */
+  font-weight: 700;
+}
+
+/* H2 (Section Titles): 600 (Semi-Bold) | 2.25rem / 36px */
+h2 {
+  font-size: 2.25rem;        /* 36px */
+  font-weight: 600;
+}
+
+/* H3 (Card Titles): 600 (Semi-Bold) | 1.5rem / 24px */
+h3 {
+  font-size: 1.5rem;         /* 24px */
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 1.25rem;        /* 20px */
+  font-weight: 600;
+}
+
+/* Body Text: 400 (Regular) | 1rem / 16px | Leading: 1.6 */
+p {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--text-primary);
+  font-size: 1rem;          /* 16px */
+  font-weight: 400;
+}
+
+/* Captions: 400 (Regular) | 0.75rem / 12px | Italicized */
+.caption {
+  font-size: 0.75rem;       /* 12px */
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+/* ========================================
+   LINKS & INTERACTION
+   ======================================== */
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+a:hover {
+  color: var(--primary-hover);     /* 10% darker */
+  text-decoration: underline;
+}
+
+/* ========================================
+   PROFESSIONAL COMPONENTS
+   ======================================== */
+
+button {
+  font-family: var(--font-sans);
+  cursor: pointer;
+}

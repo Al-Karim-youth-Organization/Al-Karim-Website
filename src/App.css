@@ -1,0 +1,838 @@
+/* ========================================
+   AL-KARIM INSTITUTIONAL DESIGN SYSTEM
+   Professional, High-Trust UI/UX
+   ======================================== */
+
+/* ========================================
+   APP SHELL & LAYOUT
+   ======================================== */
+
+.app-shell {
+  background: var(--page-bg);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  padding: 0 5vw 5rem;
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+/* ========================================
+   NAVIGATION - Weighted & Stable Header
+   ======================================== */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 5vw;
+  background: var(--secondary);    /* Oxford Blue for authority */
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-subtle);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.brand-mark {
+  width: 2.75rem;
+  height: 2.75rem;
+  display: grid;
+  place-items: center;
+  background: var(--accent-gold);
+  color: var(--secondary);
+  border-radius: var(--radius);    /* 2px sharp edge */
+  font-weight: 700;
+  font-size: 1rem;
+  border: 1px solid var(--border);
+}
+
+.brand-text {
+  color: var(--white);           /* White text on Oxford Blue */
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--white);           /* White links on Oxford Blue */
+  font-weight: 500;              /* Medium weight per spec */
+  font-size: 0.875rem;           /* 14px per Navigation spec */
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+  transition: color 150ms ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent-gold);     /* Gold accent on hover */
+  text-decoration: none;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-gold);
+  transition: width 200ms ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* ========================================
+   BUTTONS - Rectangular, Sharp Corners
+   ======================================== */
+
+.primary-button,
+.secondary-button,
+.ghost-button {
+  border: none;
+  border-radius: var(--radius);    /* 2px sharp edge */
+  padding: 12px 24px;              /* Standard non-pill shape */
+  font-weight: 500;                /* Medium per spec */
+  font-size: 0.875rem;             /* 14px per Navigation/Buttons spec */
+  text-transform: uppercase;       /* All-caps for buttons */
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background 150ms ease, border-color 150ms ease;
+  font-family: var(--font-sans);
+}
+
+.primary-button {
+  background: var(--accent-gold);  /* Muted Gold for CTAs */
+  color: var(--white);
+  border: 1px solid var(--accent-gold);
+  box-shadow: var(--shadow-subtle);
+}
+
+.primary-button:hover {
+  background: var(--accent-gold-hover);  /* 10% darker */
+  border-color: var(--accent-gold-hover);
+}
+
+.secondary-button {
+  background: var(--card-bg);
+  color: var(--primary);
+  border: 1px solid var(--border);
+}
+
+.secondary-button:hover {
+  background: var(--page-bg);      /* Slightly darker background */
+  border-color: var(--text-muted);
+}
+
+.ghost-button {
+  background: transparent;
+  color: var(--white);             /* White for dark navbar */
+  border: 1px solid var(--border);
+}
+
+.ghost-button:hover {
+  background: rgba(255, 255, 255, 0.1);  /* 10% white overlay */
+  border-color: var(--white);
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
+.hero {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hero-text h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);  /* Max 56px per spec */
+  line-height: 1.15;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.lead {
+  font-size: 1rem;                 /* 16px body text */
+  line-height: 1.6;                /* Per body text spec */
+  color: var(--text-primary);
+  max-width: 42rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0;
+}
+
+.cta-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.hero-pills {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);    /* 2px sharp edge */
+  background: var(--card-bg);
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.875rem;
+  border: 1px solid var(--border);
+}
+
+.hero-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);    /* 2px sharp edge */
+  padding: 2rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-subtle);
+}
+
+.stat {
+  margin-bottom: 1rem;
+}
+
+.stat-label {
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+.stat-value {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin: 0.5rem 0 0;
+  color: var(--text-primary);
+}
+
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 1.5rem 0;
+}
+
+.hero-highlight {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.hero-highlight p {
+  line-height: 1.6;
+}
+
+/* ========================================
+   SECTIONS & CONTENT
+   ======================================== */
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.section-header h2 {
+  margin: 0;
+  font-size: 2.25rem;
+}
+
+.section-header.center {
+  text-align: center;
+  align-items: center;
+}
+
+.section-description {
+  color: var(--text-primary);
+  font-size: 1rem;                 /* 16px body text */
+  line-height: 1.6;                /* Per body text spec */
+  max-width: 640px;
+  margin: 0;
+}
+
+/* ========================================
+   GRID SYSTEM - 12 Column Responsive
+   ======================================== */
+
+.grid {
+  display: grid;
+  gap: var(--gutter);
+}
+
+.grid.two {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.grid.three {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* ========================================
+   CARDS - Content-Heavy & Informative
+   ======================================== */
+
+.card,
+.panel,
+.donate-card,
+.join-card,
+.contact-card,
+.contact-info,
+.timeline-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);   /* Thin lines per spec */
+  border-radius: var(--radius);      /* 2px sharp edge */
+  padding: 2rem;
+  box-shadow: var(--shadow-subtle);
+  transition: box-shadow 150ms ease, border-color 150ms ease;
+}
+
+.card:hover,
+.timeline-card:hover {
+  box-shadow: var(--shadow-subtle);  /* No scaling or pop effects */
+  border-color: var(--text-muted);   /* Subtle border darken */
+}
+
+.panel h3,
+.card h3,
+.timeline-card h3 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.375rem;
+}
+
+.card p,
+.panel p,
+.timeline-card p {
+  margin-top: 0.5rem;
+}
+
+.meta,
+.subtle {
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+}
+
+/* ========================================
+   STATUS BADGES
+   ======================================== */
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.875rem;
+  border-radius: var(--radius);    /* 2px sharp edge */
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid;
+}
+
+.status.upcoming {
+  background: #E3F2FD;
+  color: #0D47A1;
+  border-color: #90CAF9;
+}
+
+.status.ongoing {
+  background: #E8F5E9;
+  color: #1B5E20;
+  border-color: #81C784;
+}
+
+.status.planned,
+.status.past {
+  background: var(--off-white);
+  color: var(--text-muted);
+  border-color: var(--border);
+}
+
+/* ========================================
+   DONATE SECTION
+   ======================================== */
+
+.donate {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 2rem;
+}
+
+.donate-card ul {
+  padding-left: 1.5rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.donate-card li {
+  margin-bottom: 0.5rem;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.step-number {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius);    /* 2px sharp edge */
+  display: grid;
+  place-items: center;
+  background: var(--primary);
+  color: var(--white);
+  font-weight: 700;
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  border: 1px solid var(--border);
+}
+
+.donate-card .alert {
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  background: #FFFBF0;
+  border-radius: var(--radius);    /* 2px sharp edge */
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+}
+
+/* ========================================
+   JOIN SECTION
+   ======================================== */
+
+.join {
+  display: flex;
+  justify-content: center;
+}
+
+.join-card {
+  max-width: 900px;
+  text-align: left;
+}
+
+/* ========================================
+   TIMELINE / EVENTS
+   ======================================== */
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.timeline-date {
+  font-weight: 700;
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* ========================================
+   FAQ ACCORDION
+   ======================================== */
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.accordion details {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);    /* 2px sharp edge */
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow-subtle);
+  transition: box-shadow 150ms ease;
+}
+
+.accordion details:hover {
+  box-shadow: var(--shadow-subtle);  /* No pop effects */
+  border-color: var(--text-muted);   /* Subtle darken */
+}
+
+.accordion summary {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.0625rem;
+  color: var(--text-primary);
+}
+
+.accordion p {
+  color: var(--text-primary);
+  margin: 1rem 0 0;
+  line-height: 1.6;                /* Per body text spec */
+}
+
+/* ========================================
+   CONTACT SECTION
+   ======================================== */
+
+.contact {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.9375rem;
+}
+
+.field label {
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: 0.8125rem;
+}
+
+.field input,
+.field textarea,
+.field select {
+  padding: 0.875rem 1rem;
+  border-radius: var(--radius);    /* 2px sharp edge */
+  border: 1px solid var(--border); /* Thin line per spec */
+  background: var(--card-bg);
+  font-size: 1rem;
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(27, 67, 50, 0.1);  /* Subtle inset shadow */
+}
+
+.success {
+  color: var(--primary);
+  font-weight: 700;
+  padding: 1rem;
+  background: #E8F5E9;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);    /* 2px sharp edge */
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.info-block {
+  padding: 0.5rem 0;
+}
+
+.info-block h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ========================================
+   MODAL
+   ======================================== */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  z-index: 200;
+}
+
+.modal {
+  background: var(--card-bg);
+  width: min(640px, 100%);
+  border-radius: var(--radius);    /* 2px sharp edge */
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);  /* Enhanced elevation */
+  overflow: hidden;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.75rem 2rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.modal-header h2 {
+  font-size: 1.75rem;
+}
+
+.modal-body {
+  padding: 1.5rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.icon-button {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);    /* 2px sharp edge */
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.icon-button:hover {
+  background: var(--page-bg);      /* 10% darker */
+  border-color: var(--text-muted);
+}
+
+.info-tile {
+  background: var(--page-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);    /* 2px sharp edge */
+  padding: 1.25rem;
+}
+
+.info-tile ol {
+  margin: 1rem 0 0;
+  padding-left: 1.5rem;
+  line-height: 1.6;                /* Per body text spec */
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.footer {
+  padding: 3rem 5vw;
+  background: var(--secondary);    /* Oxford Blue per spec */
+  color: #FFFFFF;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  align-items: center;
+  border-top: 1px solid var(--border);
+}
+
+.footer a {
+  color: #FFFFFF;
+  font-weight: 600;
+  transition: color 150ms ease;
+}
+
+.footer a:hover {
+  color: var(--accent-gold);       /* Gold accent on hover */
+  text-decoration: underline;
+}
+
+.footer-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.footer-actions .primary-button {
+  box-shadow: none;
+}
+
+.footer .ghost-button {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
+}
+
+.footer .ghost-button:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.1);  /* 10% white overlay */
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
+.section.values .card {
+  min-height: 220px;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 1024px) {
+  .navbar {
+    gap: 1rem;
+    padding: 1rem 4vw;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .hero,
+  .donate,
+  .contact {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-card {
+    order: -1;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+  }
+
+  main {
+    gap: 5rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .navbar {
+    padding: 1rem 4vw;
+  }
+
+  main {
+    padding: 0 4vw 4rem;
+    gap: 4rem;
+  }
+
+  .hero {
+    margin-top: 2rem;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .cta-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cta-row button,
+  .cta-row a {
+    width: 100%;
+  }
+
+  .section-header h2 {
+    font-size: 1.875rem;
+  }
+
+  .card,
+  .panel,
+  .donate-card,
+  .join-card,
+  .contact-card,
+  .contact-info,
+  .timeline-card {
+    padding: 1.5rem;
+  }
+
+  .modal-header,
+  .modal-body {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
