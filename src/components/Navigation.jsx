@@ -1,8 +1,10 @@
+import logo from '../assets/logo.png'
+
 const Navigation = ({ onDonateClick, whatsappLink }) => {
   return (
     <header className="navbar" id="top">
       <div className="brand">
-        <span className="brand-mark">AK</span>
+        <img src={logo} alt="Al-Karim Logo" className="brand-mark" />
         <span className="brand-text">Al-Karim</span>
       </div>
       <nav className="nav-links">
