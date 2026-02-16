@@ -14,7 +14,7 @@ import DonateModal from './components/DonateModal'
 
 // Single-page flow keeps navigation and calls to action visible without extra clicks.
 const whatsappLink = 'https://chat.whatsapp.com/invite' // Replace with live invite link when ready.
-const tillNumber = '7705914'
+const tillNumber = '4455262'
 
 const values = [
   {

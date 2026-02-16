@@ -24,13 +24,13 @@ const DonateSection = ({ onDonateClick, tillNumber }) => {
         title="Make a difference today"
         description="Your support helps Al-Karim educate youth on the teachings of Islam, foster meaningful community service, and create programs that strengthen faith and character. Every contribution helps us guide young people to learn, serve, and make a positive impact in their communities."
       />
-      
+
       <div className="donate-form-container">
-        
+
         {/* Security Badge */}
-        <div style={{ 
-          display: 'flex', 
-          alignItems: 'center', 
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
           gap: '0.5rem',
           marginBottom: '1.5rem',
           padding: '0.75rem',
@@ -45,7 +45,7 @@ const DonateSection = ({ onDonateClick, tillNumber }) => {
         </div>
 
         {/* Till Number Display */}
-        <div style={{ 
+        <div style={{
           textAlign: 'center',
           padding: '1rem',
           background: '#F8FAFC',
@@ -56,10 +56,10 @@ const DonateSection = ({ onDonateClick, tillNumber }) => {
           <p style={{ margin: '0 0 0.25rem', fontSize: '0.875rem', color: '#64748B' }}>
             M-Pesa Till Number
           </p>
-          <p style={{ 
-            margin: 0, 
-            fontSize: '1.75rem', 
-            fontWeight: '700', 
+          <p style={{
+            margin: 0,
+            fontSize: '1.75rem',
+            fontWeight: '700',
             color: '#1B4332',
             letterSpacing: '0.05em'
           }}>
@@ -69,8 +69,8 @@ const DonateSection = ({ onDonateClick, tillNumber }) => {
 
         {/* Amount Selection */}
         <div style={{ marginBottom: '1.5rem' }}>
-          <label style={{ 
-            display: 'block', 
+          <label style={{
+            display: 'block',
             marginBottom: '0.75rem',
             fontSize: '0.875rem',
             fontWeight: '600',
@@ -103,10 +103,10 @@ const DonateSection = ({ onDonateClick, tillNumber }) => {
               </button>
             ))}
           </div>
-          
+
           {/* Custom Amount */}
           <div>
-            <label style={{ 
+            <label style={{
               display: 'flex',
               alignItems: 'center',
               gap: '0.5rem',
@@ -145,20 +145,20 @@ const DonateSection = ({ onDonateClick, tillNumber }) => {
         </div>
 
         {/* Instructions */}
-        <div style={{ 
+        <div style={{
           padding: '1rem',
           background: '#FEF3C7',
           borderRadius: '4px',
           marginBottom: '1.5rem',
           border: '1px solid #FCD34D'
         }}>
-          <p style={{ 
-            margin: 0, 
-            fontSize: '0.875rem', 
+          <p style={{
+            margin: 0,
+            fontSize: '0.875rem',
             color: '#92400E',
             lineHeight: '1.5'
           }}>
-            <strong>How to donate:</strong> Go to M-Pesa → Lipa na M-Pesa → Buy Goods and Services → 
+            <strong>How to donate:</strong> Go to M-Pesa → Lipa na M-Pesa → Buy Goods and Services →
             Enter Till <strong>{tillNumber}</strong> → Enter the amount → Enter your PIN
           </p>
         </div>
