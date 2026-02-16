@@ -25,15 +25,7 @@ const DonateSection = ({ onDonateClick, tillNumber }) => {
         description="Your support helps Al-Karim educate youth on the teachings of Islam, foster meaningful community service, and create programs that strengthen faith and character. Every contribution helps us guide young people to learn, serve, and make a positive impact in their communities."
       />
       
-      <div style={{ 
-        maxWidth: '600px', 
-        margin: '0 auto', 
-        padding: '2rem',
-        background: '#fff',
-        borderRadius: '8px',
-        boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
-        border: '1px solid #E2E8F0'
-      }}>
+      <div className="donate-form-container">
         
         {/* Security Badge */}
         <div style={{ 
@@ -86,12 +78,7 @@ const DonateSection = ({ onDonateClick, tillNumber }) => {
           }}>
             Select Amount (KES)
           </label>
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(2, 1fr)', 
-            gap: '0.75rem',
-            marginBottom: '0.75rem'
-          }}>
+          <div className="donate-amount-grid">
             {suggestedAmounts.map((amt) => (
               <button
                 key={amt}

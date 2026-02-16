@@ -1,24 +1,7 @@
 const Footer = ({ whatsappLink, onDonateClick }) => {
   return (
-    <footer
-      style={{
-        background: '#0f172a',
-        color: '#E2E8F0',
-        padding: '2rem 1.5rem',
-        borderTop: '1px solid rgba(255,255,255,0.08)',
-        marginTop: '2.5rem'
-      }}
-    >
-      <div
-        style={{
-          maxWidth: '1100px',
-          margin: '0 auto',
-          display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          gap: '1.5rem',
-          marginBottom: '1.75rem'
-        }}
-      >
+    <footer className="footer-responsive">
+      <div className="footer-content">
         {/* Brand Column */}
         <div style={{ gridColumn: '1 / 2' }}>
           <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start', marginBottom: '1rem' }}>
@@ -121,7 +104,7 @@ const Footer = ({ whatsappLink, onDonateClick }) => {
       </div>
 
       {/* Divider and Copyright */}
-      <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '1.25rem', textAlign: 'center', color: '#94a3b8', fontSize: '0.9rem' }}>
+      <div className="footer-copyright">
         © {new Date().getFullYear()} Al-Karim. All rights reserved.
       </div>
     </footer>

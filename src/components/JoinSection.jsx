@@ -1,7 +1,7 @@
 const JoinSection = ({ whatsappLink }) => {
   return (
     <section
-      className="section join"
+      className="section join join-section-wrapper"
       id="join"
       style={{
         position: 'relative',
@@ -11,7 +11,7 @@ const JoinSection = ({ whatsappLink }) => {
       }}
     >
       {/* Main shell */}
-      <div
+      <div className="join-container"
         style={{
           position: 'relative',
           maxWidth: '940px',
@@ -71,7 +71,7 @@ const JoinSection = ({ whatsappLink }) => {
             No forms. No delays. Join our WhatsApp community to stay connected with Al-Karim's programs, volunteering opportunities, and faith-based learning. Be part of a youth movement focused on learning, serving, and making a positive impact.
           </p>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', flexWrap: 'wrap' }}>
+          <div className="join-cta-container" style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', flexWrap: 'wrap' }}>
             <a
               href={whatsappLink}
               target="_blank"
@@ -126,7 +126,7 @@ const JoinSection = ({ whatsappLink }) => {
         </div>
 
         {/* Info column */}
-        <div
+        <div className="why-join-section"
           style={{
             background: 'rgba(15,23,42,0.55)',
             border: '1px solid rgba(255,255,255,0.08)',
